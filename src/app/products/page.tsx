@@ -1,7 +1,9 @@
-import Image from "next/image";
 import { notFound } from "next/navigation";
+import React from "react";
 
-export default function Home() {
+const page = () => {
   notFound();
   return <div></div>;
-}
+};
+
+export default page;
