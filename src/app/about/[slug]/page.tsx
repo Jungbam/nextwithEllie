@@ -1,9 +1,11 @@
-import { notFound } from "next/navigation";
 import React from "react";
-
-const page = () => {
-  notFound();
-  return <div>2</div>;
+type Props = {
+  params: {
+    slug: string;
+  };
+};
+const page = ({ params }: Props) => {
+  return <div>{params.slug}</div>;
 };
 
 export default page;
