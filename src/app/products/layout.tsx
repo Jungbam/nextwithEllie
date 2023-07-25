@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import styles from "../layout.module.css";
+import Link from "next/link";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -18,8 +19,8 @@ export default function AboutLayout({
       <header className={styles.header}>
         <h1>분류</h1>
         <nav className={styles.nav}>
-          <a href="/about/woman">여성옷</a>
-          <a href="/about/man">남성옷</a>
+          <Link href="/products/woman">여성옷</Link>
+          <Link href="/products/man">남성옷</Link>
         </nav>
       </header>
       {children}
