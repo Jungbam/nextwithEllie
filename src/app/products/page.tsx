@@ -2,8 +2,9 @@ import Link from "next/link";
 import React from "react";
 import styles from "../layout.module.css";
 import { getProducts } from "@/service/products";
+import MeowArticle from "@/components/MeowArticle";
 
-// export const revalidate = 3;
+export const revalidate = 3;
 
 const ProductsPage = async () => {
   const products = await getProducts();
@@ -22,7 +23,7 @@ const ProductsPage = async () => {
           </li>
         ))}
       </ul>
-      <article className={styles.article}>{factText}</article>
+      <MeowArticle />
     </div>
   );
 };
