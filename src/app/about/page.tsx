@@ -3,6 +3,7 @@ import React from "react";
 import styles from "../layout.module.css";
 import { getProducts } from "@/service/products";
 
+export const revalidate = 3;
 const page = async () => {
   const product = await getProducts();
   return (
