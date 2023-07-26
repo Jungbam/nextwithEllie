@@ -1,24 +1,19 @@
 import Link from "next/link";
 import React from "react";
 import styles from "../layout.module.css";
+import { getProducts } from "@/service/products";
 
-const page = () => {
+const page = async () => {
+  const product = await getProducts();
   return (
     <div>
       <h1>제품 소개 페이지!</h1>
       <ul className={styles.ul}>
-        <li>
-          <Link href="/products/shirts">shirts</Link>
-        </li>
-        <li>
-          <Link href="/products/pants">pants</Link>
-        </li>
-        <li>
-          <Link href="/products/hats">hats</Link>
-        </li>
-        <li>
-          <Link href="/products/shoes">shoes</Link>
-        </li>
+        {product.map((product) => (
+          <li key={product.id}>
+            <Link href={`/products/${product.name}`}>{product.name}</Link>
+          </li>
+        ))}
       </ul>
     </div>
   );
