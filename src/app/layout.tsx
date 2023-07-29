@@ -16,7 +16,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" className={inter.className}>
       <body className={inter.className}>
         <header className={styles.header}>
           <h1>Demo Note App</h1>
