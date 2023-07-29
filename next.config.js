@@ -12,6 +12,14 @@ const nextConfig = {
       },
     ];
   },
+  async rewrites() {
+    return [
+      {
+        source: "/item",
+        destination: "/products",
+      },
+    ];
+  },
 };
 
 module.exports = nextConfig;
