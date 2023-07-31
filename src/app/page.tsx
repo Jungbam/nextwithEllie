@@ -1,9 +1,7 @@
-import Counter from "@/components/Counter";
+import React from "react";
 
-export default function Home() {
-  return (
-    <div>
-      <Counter />
-    </div>
-  );
-}
+const page = () => {
+  return <div>page</div>;
+};
+
+export default page;
