@@ -16,6 +16,11 @@ export default defineType({
       type: "string",
     }),
     defineField({
+      name: "email",
+      title: "Email",
+      type: "string",
+    }),
+    defineField({
       name: "image",
       title: "Image",
       type: "string",
@@ -60,7 +65,7 @@ export default defineType({
   preview: {
     select: {
       title: "name",
-      media: "image",
+      subtitle: "username",
     },
   },
 });

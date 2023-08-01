@@ -34,20 +34,36 @@ export default defineType({
       type: "array",
       of: [
         {
-          type: "reference",
+          name: "comment",
+          title: "Comment",
+          type: "document",
+          fields: [
+            defineField({
+              name: "author",
+              title: "Author",
+              type: "reference",
+              to: [{ type: "user" }],
+            }),
+            defineField({
+              name: "text",
+              title: "Text",
+              type: "text",
+            }),
+          ],
         },
       ],
     }),
   ],
   preview: {
     select: {
-      title: "title",
-      author: "author.name",
-      media: "mainImage",
+      title: "comments.0.comment",
+      subtitle: "author.name",
+      autorUsername: "author.username",
+      media: "photo",
     },
     prepare(selection) {
-      const { author } = selection;
-      return { ...selection, subtitle: author && `by ${author}` };
+      const { title, autorUsername, subtitle, media } = selection;
+      return { title, subtitle: `by ${autorUsername} (${subtitle})`, media };
     },
   },
 });
