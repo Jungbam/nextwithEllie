@@ -1,0 +1,6 @@
+jest.config.js
+jest.setup.js
+tailwind.config.js
+next.config.js
+postcss.config.js
+```

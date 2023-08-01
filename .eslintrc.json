@@ -17,7 +17,13 @@
       "error",
       {
         "selector": "variable",
-        "format": ["camelCase", "PascalCase"]
+        "format": ["camelCase"]
+      },
+      {
+        "selector": "variable",
+        "types": ["function"],
+        "format": ["PascalCase"],
+        "leadingUnderscore": "forbid"
       },
       {
         "selector": "function",
