@@ -7,7 +7,15 @@ import { AiFillHome } from "react-icons/ai";
 
 const HomeIcon = () => {
   const currentPath = usePathname();
-  return <>{currentPath === "home" ? <AiFillHome /> : <AiOutlineHome />}</>;
+  return (
+    <>
+      {currentPath === "/home" ? (
+        <AiFillHome className="w-7 h-7" />
+      ) : (
+        <AiOutlineHome className="w-7 h-7" />
+      )}
+    </>
+  );
 };
 
 export default HomeIcon;

@@ -1,33 +1,46 @@
+"use client";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 import React from "react";
 
-import { AiOutlineHome } from "react-icons/ai";
-import { AiFillHome } from "react-icons/ai";
-import { BsPlusSquare } from "react-icons/bs";
-import { BsPlusSquareFill } from "react-icons/bs";
-import { RiSearchLine } from "react-icons/ri";
-import { RiSearchFill } from "react-icons/ri";
+import { HomeIcon, PlusIcon, SearchIcon } from "../designSystem/icon";
+import ColorBtn from "../common/ColorBtn";
+
+const navMenu = [
+  {
+    href: "/home",
+    icon: <HomeIcon />,
+  },
+  {
+    href: "/search",
+    icon: <SearchIcon />,
+  },
+  {
+    href: "/plus",
+    icon: <PlusIcon />,
+  },
+];
 
 const Header = () => {
-  const currentPath = usePathname();
   return (
-    <div>
-      <Link href="/home">
-        <h1>Instagram</h1>
-      </Link>
-      <nav>
-        <Link href="/home">
-          {currentPath === "/home" ? <AiFillHome /> : <AiOutlineHome />}
+    <header className="sticky top-0 bg-white z-10 border-b">
+      <div className="flex justify-between items-center">
+        <Link href="/home" passHref>
+          <h1 className="text-3xl font-bold">Instagram</h1>
         </Link>
-        <Link href="/search">
-          {currentPath === "/search" ? <RiSearchFill /> : <RiSearchLine />}
-        </Link>
-        <Link href="/plus">
-          {currentPath === "/plus" ? <BsPlusSquareFill /> : <BsPlusSquare />}
-        </Link>
-      </nav>
-    </div>
+        <nav>
+          <ul className="flex justify-between items-center mx-auto gap-4 p-4">
+            {navMenu.map((item) => (
+              <li key={item.href}>
+                <Link href={item.href} passHref>
+                  {item.icon}
+                </Link>
+              </li>
+            ))}
+            <ColorBtn text="Sign In" onClick={() => {}} />
+          </ul>
+        </nav>
+      </div>
+    </header>
   );
 };
 
